@@ -1,0 +1,262 @@
+# ============================================================
+#  AFRoeMetalwork.com — site content
+#  Edit this file, then run:  python3 build.py
+#  Everything the site displays (text, ordering, image choices)
+#  lives here. Empty fields ("") are simply not shown.
+# ============================================================
+
+[site]
+title = "Alisa Formway Roe"
+subtitle = "Sculpture in Steel & Bronze"
+description = "Portfolio of Alisa Formway Roe — abstract and functional sculpture in welded mild, corten, and stainless steel, and bronze."
+email = "AFRoeMetalwork@gmail.com"
+# Folder (relative to this repo) that holds one subfolder per work:
+source_dir = "2026 filtered portfolio"
+about_photo = "Artist Statement, bio and cost analysis/Artist photo 4:21/_DSC2116 Large.jpeg"
+
+[hero]
+# Banner image at the top of the home page, relative to source_dir.
+# Shown at its own aspect ratio, so crop the file itself to taste.
+image = "Hero.JPG"
+alt = "Detail of a welded steel sculpture"
+quote = "I cut and bend, hammer and weld steel into abstracted representative forms."
+
+[about]
+statement = """
+I have always looked at the world as an artist. I see compositions of shapes and colors all around me and am compelled to create.
+
+Over twenty years ago, the idea of learning to work in metal was planted by work seen in a gallery in Santa Fe, New Mexico. Years later I had the opportunity to take a continuing-education class at the local community college — and found my medium.
+
+Metal is hard yet malleable, exacting while forgiving. It is labor intensive and heavy, but there is an appeal that continues to fascinate. I love that I can express myself artistically and also solve a practical problem, often with an unexpected aesthetic inclusion.
+
+I cut and bend, hammer and weld steel into abstracted representative forms. I enjoy composing in three dimensions, working to move the viewer around and within the positive and negative shapes. A design element exists as a solid form, and it exists again as the volume of space between two forms; I strive to compose these so that a dialog and a tension is created — enticing, even compelling, the viewer to move around the sculpture, following the lines of the form and enjoying the contrasts of tone and texture along the way.
+
+I want the aesthetics of my work to be visually and emotionally pleasing, and to leave enough room for interpretation that each viewer can respond individually to a piece. Ideally, what one sees can change with each visit, so that the work remains fresh over time.
+"""
+
+bio = """
+Alisa Formway Roe is a Pacific Northwest sculptor working in welded mild, corten, and stainless steels, as well as bronze. She received her Bachelor of Arts in Art History from the University of Washington in 1979. In 2005, after many years raising a family, she returned to her artistic orientation, taking sculpture and welding classes at Portland Community College, and soon opened a studio of her own.
+
+Her work ranges from intimate bronze figures and functional commissions — railings, gates, firepits, and lamps — to large-scale outdoor installations. Her sculpture has been exhibited in Oregon, Washington, and Illinois, and is held in the public collections of the City of Lake Oswego and Portland Community College's Rock Creek campus.
+"""
+
+[[about.exhibitions]]
+year = "2013"
+text = "The Allison Inn & Spa Sculpture Invitational, Newberg, Oregon — Tree Trunk Tangle Bench and Laminaria"
+
+[[about.exhibitions]]
+year = "2012"
+text = "Sculptural Conversations, Bush Barn Art Center, Salem, Oregon — Spirit Uplifting"
+
+[[about.exhibitions]]
+year = "2012"
+text = "Precarious selected for the permanent collection of the Portland Community College Rock Creek Campus Learning Garden"
+
+[[about.exhibitions]]
+year = "2011"
+text = "9th Around Oregon Annual Exhibition, The Arts Center, Corvallis, Oregon — Tree Trunk Tangle Bench"
+
+[[about.exhibitions]]
+year = "2011"
+text = "The Language of Sculpture, juried special exhibit, Lake Oswego Festival of the Arts — Tree Trunk Tangle Bench and Spirit Uplifting"
+
+[[about.exhibitions]]
+year = "2009–11"
+text = "Gallery Without Walls juried exhibition, Lake Oswego, Oregon — August Trunk. Voted the People's Choice Award and purchased by the city, 2011"
+
+[[about.exhibitions]]
+year = "2008"
+text = "The Big Rock Garden juried exhibition (finalist), Bellingham, Washington — Precarious"
+
+[[about.exhibitions]]
+year = "2008"
+text = "Cedarhurst Biennial Sculpture Competition and Maquette Exhibition (finalist), Mt. Vernon, Illinois — August Trunk maquette"
+
+# ============================================================
+#  Works, in the order they appear in the gallery.
+#  folder    — subfolder of source_dir (exact name, including any
+#              trailing spaces)
+#  primary   — cover image; defaults to a file named Primary.*
+#  All other .jpg/.jpeg files in the folder appear on the work's
+#  page in alphabetical order.
+# ============================================================
+
+[[projects]]
+slug = "marianas"
+folder = "Marianas "
+title = "Marianas"
+materials = "Corten and stainless steel"
+year = ""
+dimensions = ""
+description = ""
+process_folder = "Marianas process"
+process_title = "Marianas in the Studio"
+process_intro = "A look inside the studio as Marianas takes shape — from flat sheet steel to the finished form."
+
+[[projects]]
+slug = "spirit-uplifting"
+folder = "Spirit Uplifting"
+title = "Spirit Uplifting"
+materials = "Stainless steel and gold leaf; corten steel base"
+year = "2011"
+exhibited = "The Language of Sculpture, Lake Oswego Festival of the Arts, 2011 · Sculptural Conversations, Bush Barn Art Center, Salem, Oregon, 2012"
+description = """
+Spirit Uplifting grew out of a series of works exploring the sweeping, twisting lines of stylized flame. As the piece developed it became more abstracted from that starting idea — a form more grounded than fire, yet similarly ethereal.
+
+The sculpture was first worked in clay. From that maquette, patterns were traced, enlarged, and cut from stainless steel — my first piece in that material. The form had to be worked up from the base on all sides at once, each plane drawn gracefully in to its neighbor with tremendous force for fit-up, tacking, and final TIG welding, all while managing the heat distortion that stainless invites. The inside corners could not be welded and cleaned afterward, so they were hammered from wedges and finished in gold leaf. They draw attention to the interior of the form — the spirit emerging from within.
+
+The double-stacked, rotating base is corten steel, chosen for the beauty of its patina and the contrast of that warmth against the cool tones of the stainless form.
+"""
+
+[[projects]]
+slug = "charis"
+folder = "Charis, Bronze Figure"
+title = "Charis"
+materials = "Silicon bronze; uba tuba granite and corten steel base"
+year = ""
+collection = "Art acquisition, Portland Community College Rock Creek Campus"
+description = """
+Charis is named for the Greek goddess of charm, beauty, nature, and human creativity — and for the woman photographed by Edward Weston whose image inspired this sculpture. The sinuous lines drawn in space by the intersection of each plane reference the soft flesh of the photographed figure, even as the hard material and reflective surfaces contradict that truth.
+
+The figure is abstracted into four elements fabricated from eighth-inch silicon sheet bronze. The interior surfaces are polished to a mirror finish to highlight the value of the internal beauty in each of us; they bounce light between the elements and reflect the viewer's own image, drawing one closer to the sculpture. The pieces are bolted to a slab of uba tuba stone, which rests atop a corten steel base.
+"""
+
+[[projects]]
+slug = "august-trunk"
+folder = "August Trunk"
+title = "August Trunk"
+materials = "Mild steel with aliphatic urethane"
+year = "2009"
+dimensions = "6.5′ high × 5′ wide × 10.5′ long"
+collection = "Collection of the City of Lake Oswego, Oregon · People's Choice Award, Gallery Without Walls, 2011"
+description = """
+August Trunk stood in downtown Lake Oswego, Oregon from 2009 to 2011 as part of the Gallery Without Walls juried exhibition, where it was voted the People's Choice Award and purchased by the city for its permanent collection. A maquette of the piece was a finalist in the Cedarhurst Biennial Sculpture Competition in Mt. Vernon, Illinois.
+"""
+
+[[projects]]
+slug = "tree-trunk-tangle-bench"
+folder = "Tree Trunk Tangle Bench"
+title = "Tree Trunk Tangle Bench"
+materials = "Corten and stainless steel"
+year = "2011"
+exhibited = "Lake Oswego Festival of the Arts, 2011 · 9th Around Oregon Annual, Corvallis, 2011 · The Allison Inn & Spa Sculpture Invitational, 2013"
+description = """
+Tree Trunk Tangle Bench was inspired by the massive logs seen piled alongside Pacific Northwest mountain creeks during spring run-off: rich brown tree bark, wet with rain and stream mist, set off by the white torrent of nearby rushing water.
+
+Here the "log-jam" is formed of corten — weathering — steel cylinders of various diameters and lengths, tumbled to rest in balance. The slatted stainless steel seat is set over, and cantilevered from, the logs. The corten rusts to a warm mahogany patina and then stabilizes, complementing the visually cool qualities of the stainless; the solid round log forms contrast the rectangular, slatted bench. Each independent form is anchored to the ground and bolted to its neighbor. This was my first piece combining corten and stainless steel.
+"""
+
+[[projects]]
+slug = "precarious"
+folder = "Precarious"
+title = "Precarious"
+materials = ""
+year = "2008"
+collection = "Permanent collection, Portland Community College Rock Creek Campus Learning Garden"
+exhibited = "Finalist, The Big Rock Garden juried exhibition, Bellingham, Washington, 2008"
+description = ""
+
+[[projects]]
+slug = "laminaria"
+folder = "Laminaria"
+title = "Laminaria"
+materials = ""
+year = ""
+exhibited = "The Allison Inn & Spa Sculpture Invitational, Newberg, Oregon, 2013"
+description = "Named for the genus of kelp whose long blades line Pacific Northwest shores."
+
+[[projects]]
+slug = "summer-reclining"
+folder = "Summer Reclining"
+title = "Summer Reclining"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "turban-man"
+folder = "Turban Man"
+title = "Turban Man"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "stump-stool"
+folder = "Stump Stool"
+title = "Stump Stool"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "susie-baird-gate"
+folder = "Susie Baird Gate"
+title = "Susie Baird Gate"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "16th-street"
+folder = "16th Street"
+title = "16th Street Railing"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "fireplace"
+folder = "Fireplace "
+title = "Fireplace"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "firepit-evolution"
+folder = "Firepit Evolution"
+title = "Firepit — Evolution"
+materials = "Mild steel"
+year = ""
+description = ""
+
+[[projects]]
+slug = "firepit-interconnected"
+folder = "Firepit Interconnected"
+title = "Firepit — Interconnected"
+materials = "Mild steel"
+year = ""
+description = ""
+
+[[projects]]
+slug = "firepit-irony"
+folder = "Firepit Irony"
+title = "Firepit — Irony"
+materials = "Mild steel"
+year = ""
+description = ""
+
+[[projects]]
+slug = "bell-hanger"
+folder = "Bell Hanger"
+title = "Bell Hanger"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "bettys-lamp"
+folder = "Betty's lamp"
+title = "Betty's Lamp"
+materials = ""
+year = ""
+description = ""
+
+[[projects]]
+slug = "candle-sticks"
+folder = "Candle Sticks"
+title = "Candlesticks"
+materials = ""
+year = ""
+description = ""

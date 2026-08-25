@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+
+# Source photographs and documents are kept out of the repo — they are
+# archived elsewhere. Only the web-sized images generated into docs/ are
+# committed. Restore these folders locally before running build.py.
+/2026 filtered portfolio/
+/Artist Statement, bio and cost analysis/

@@ -1,0 +1,778 @@
+{
+"images/spirit-uplifting/primary-thumb.jpg": [
+555,
+900
+],
+"images/spirit-uplifting/primary-large.jpg": [
+1064,
+1724
+],
+"images/charis/primary-thumb.jpg": [
+900,
+684
+],
+"images/charis/primary-large.jpg": [
+1800,
+1368
+],
+"images/august-trunk/primary-thumb.jpg": [
+900,
+782
+],
+"images/august-trunk/primary-large.jpg": [
+1800,
+1564
+],
+"images/tree-trunk-tangle-bench/primary-thumb.jpg": [
+900,
+597
+],
+"images/tree-trunk-tangle-bench/primary-large.jpg": [
+1800,
+1195
+],
+"images/precarious/primary-thumb.jpg": [
+668,
+900
+],
+"images/precarious/primary-large.jpg": [
+1336,
+1800
+],
+"images/laminaria/primary-thumb.jpg": [
+377,
+900
+],
+"images/laminaria/primary-large.jpg": [
+755,
+1800
+],
+"images/summer-reclining/primary-thumb.jpg": [
+900,
+675
+],
+"images/summer-reclining/primary-large.jpg": [
+1800,
+1350
+],
+"images/turban-man/primary-thumb.jpg": [
+597,
+900
+],
+"images/turban-man/primary-large.jpg": [
+1195,
+1800
+],
+"images/stump-stool/primary-thumb.jpg": [
+900,
+675
+],
+"images/stump-stool/primary-large.jpg": [
+1800,
+1350
+],
+"images/susie-baird-gate/primary-thumb.jpg": [
+600,
+900
+],
+"images/susie-baird-gate/primary-large.jpg": [
+1200,
+1800
+],
+"images/16th-street/primary-thumb.jpg": [
+897,
+900
+],
+"images/16th-street/primary-large.jpg": [
+1672,
+1677
+],
+"images/fireplace/primary-thumb.jpg": [
+895,
+900
+],
+"images/fireplace/primary-large.jpg": [
+1157,
+1163
+],
+"images/firepit-evolution/primary-thumb.jpg": [
+900,
+781
+],
+"images/firepit-evolution/primary-large.jpg": [
+1800,
+1563
+],
+"images/firepit-interconnected/primary-thumb.jpg": [
+900,
+790
+],
+"images/firepit-interconnected/primary-large.jpg": [
+1800,
+1580
+],
+"images/firepit-irony/primary-thumb.jpg": [
+879,
+900
+],
+"images/firepit-irony/primary-large.jpg": [
+1000,
+1024
+],
+"images/bell-hanger/primary-thumb.jpg": [
+675,
+900
+],
+"images/bell-hanger/primary-large.jpg": [
+1350,
+1800
+],
+"images/bettys-lamp/primary-thumb.jpg": [
+900,
+675
+],
+"images/bettys-lamp/primary-large.jpg": [
+1800,
+1350
+],
+"images/candle-sticks/primary-thumb.jpg": [
+597,
+900
+],
+"images/candle-sticks/primary-large.jpg": [
+850,
+1280
+],
+"images/site/dsc2116-large-large.jpg": [
+1280,
+850
+],
+"images/marianas/primary-large.jpg": [
+1800,
+1020
+],
+"images/marianas/primary-thumb.jpg": [
+900,
+510
+],
+"images/site/hero-hero.jpg": [
+1918,
+842
+],
+"images/marianas/1-large.jpg": [
+1800,
+1288
+],
+"images/marianas/2-large.jpg": [
+1800,
+1594
+],
+"images/marianas/3-large.jpg": [
+1434,
+1800
+],
+"images/marianas/4-large.jpg": [
+1192,
+1800
+],
+"images/marianas/5-large.jpg": [
+1364,
+1800
+],
+"images/marianas/6-large.jpg": [
+1559,
+1800
+],
+"images/marianas/1-thumb.jpg": [
+900,
+644
+],
+"images/marianas/2-thumb.jpg": [
+900,
+797
+],
+"images/marianas/3-thumb.jpg": [
+717,
+900
+],
+"images/marianas/4-thumb.jpg": [
+596,
+900
+],
+"images/marianas/5-thumb.jpg": [
+682,
+900
+],
+"images/marianas/6-thumb.jpg": [
+779,
+900
+],
+"images/marianas/process/1-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/2-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/3-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/4-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/5-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/6-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/7-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/8-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/9-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/10-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/11-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/12-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/13-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/14-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/15-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/16-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/17-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/18-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/19-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/1-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/2-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/3-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/4-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/5-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/6-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/7-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/8-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/9-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/10-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/11-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/12-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/13-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/14-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/15-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/16-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/17-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/18-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/19-thumb.jpg": [
+675,
+900
+],
+"images/spirit-uplifting/1-large.jpg": [
+987,
+1779
+],
+"images/spirit-uplifting/2-large.jpg": [
+1052,
+1684
+],
+"images/spirit-uplifting/3-large.jpg": [
+994,
+1702
+],
+"images/spirit-uplifting/4-large.jpg": [
+1350,
+1800
+],
+"images/spirit-uplifting/5-large.jpg": [
+1350,
+1800
+],
+"images/spirit-uplifting/1-thumb.jpg": [
+499,
+900
+],
+"images/spirit-uplifting/2-thumb.jpg": [
+562,
+900
+],
+"images/spirit-uplifting/3-thumb.jpg": [
+525,
+900
+],
+"images/spirit-uplifting/4-thumb.jpg": [
+675,
+900
+],
+"images/spirit-uplifting/5-thumb.jpg": [
+675,
+900
+],
+"images/charis/1-large.jpg": [
+1800,
+1368
+],
+"images/charis/2-large.jpg": [
+1800,
+1368
+],
+"images/charis/3-large.jpg": [
+1800,
+1368
+],
+"images/charis/4-large.jpg": [
+1800,
+1368
+],
+"images/charis/1-thumb.jpg": [
+900,
+684
+],
+"images/charis/2-thumb.jpg": [
+900,
+684
+],
+"images/charis/3-thumb.jpg": [
+900,
+684
+],
+"images/charis/4-thumb.jpg": [
+900,
+684
+],
+"images/august-trunk/1-large.jpg": [
+1800,
+899
+],
+"images/august-trunk/2-large.jpg": [
+1195,
+1800
+],
+"images/august-trunk/3-large.jpg": [
+1280,
+850
+],
+"images/august-trunk/4-large.jpg": [
+850,
+1280
+],
+"images/august-trunk/5-large.jpg": [
+1280,
+850
+],
+"images/august-trunk/6-large.jpg": [
+1195,
+1800
+],
+"images/august-trunk/1-thumb.jpg": [
+900,
+449
+],
+"images/august-trunk/2-thumb.jpg": [
+597,
+900
+],
+"images/august-trunk/3-thumb.jpg": [
+900,
+597
+],
+"images/august-trunk/4-thumb.jpg": [
+597,
+900
+],
+"images/august-trunk/5-thumb.jpg": [
+900,
+597
+],
+"images/august-trunk/6-thumb.jpg": [
+597,
+900
+],
+"images/tree-trunk-tangle-bench/1-large.jpg": [
+1195,
+1800
+],
+"images/tree-trunk-tangle-bench/2-large.jpg": [
+1800,
+1161
+],
+"images/tree-trunk-tangle-bench/3-large.jpg": [
+1800,
+1341
+],
+"images/tree-trunk-tangle-bench/1-thumb.jpg": [
+597,
+900
+],
+"images/tree-trunk-tangle-bench/2-thumb.jpg": [
+900,
+581
+],
+"images/tree-trunk-tangle-bench/3-thumb.jpg": [
+900,
+670
+],
+"images/precarious/1-large.jpg": [
+1266,
+1800
+],
+"images/precarious/2-large.jpg": [
+915,
+1128
+],
+"images/precarious/3-large.jpg": [
+1266,
+1800
+],
+"images/precarious/4-large.jpg": [
+1414,
+1800
+],
+"images/precarious/5-large.jpg": [
+1323,
+1800
+],
+"images/precarious/1-thumb.jpg": [
+633,
+900
+],
+"images/precarious/2-thumb.jpg": [
+730,
+900
+],
+"images/precarious/3-thumb.jpg": [
+633,
+900
+],
+"images/precarious/4-thumb.jpg": [
+707,
+900
+],
+"images/precarious/5-thumb.jpg": [
+661,
+900
+],
+"images/laminaria/1-large.jpg": [
+1800,
+1192
+],
+"images/laminaria/2-large.jpg": [
+796,
+1800
+],
+"images/laminaria/3-large.jpg": [
+680,
+1800
+],
+"images/laminaria/4-large.jpg": [
+741,
+1800
+],
+"images/laminaria/1-thumb.jpg": [
+900,
+596
+],
+"images/laminaria/2-thumb.jpg": [
+398,
+900
+],
+"images/laminaria/3-thumb.jpg": [
+340,
+900
+],
+"images/laminaria/4-thumb.jpg": [
+370,
+900
+],
+"images/susie-baird-gate/1-large.jpg": [
+1195,
+1800
+],
+"images/susie-baird-gate/2-large.jpg": [
+1200,
+1800
+],
+"images/susie-baird-gate/3-large.jpg": [
+1199,
+1800
+],
+"images/susie-baird-gate/4-large.jpg": [
+1200,
+1800
+],
+"images/susie-baird-gate/1-thumb.jpg": [
+597,
+900
+],
+"images/susie-baird-gate/2-thumb.jpg": [
+600,
+900
+],
+"images/susie-baird-gate/3-thumb.jpg": [
+600,
+900
+],
+"images/susie-baird-gate/4-thumb.jpg": [
+600,
+900
+],
+"images/16th-street/1-large.jpg": [
+1800,
+1350
+],
+"images/16th-street/1-thumb.jpg": [
+900,
+675
+],
+"images/fireplace/1-large.jpg": [
+1510,
+1800
+],
+"images/fireplace/2-large.jpg": [
+1800,
+1195
+],
+"images/fireplace/3-large.jpg": [
+1195,
+1800
+],
+"images/fireplace/4-large.jpg": [
+1192,
+1800
+],
+"images/fireplace/5-large.jpg": [
+1192,
+1800
+],
+"images/fireplace/1-thumb.jpg": [
+755,
+900
+],
+"images/fireplace/2-thumb.jpg": [
+900,
+597
+],
+"images/fireplace/3-thumb.jpg": [
+597,
+900
+],
+"images/fireplace/4-thumb.jpg": [
+596,
+900
+],
+"images/fireplace/5-thumb.jpg": [
+596,
+900
+],
+"images/firepit-evolution/1-large.jpg": [
+1706,
+1800
+],
+"images/firepit-evolution/2-large.jpg": [
+1692,
+1800
+],
+"images/firepit-evolution/3-large.jpg": [
+1236,
+1800
+],
+"images/firepit-evolution/4-large.jpg": [
+1800,
+1197
+],
+"images/firepit-evolution/1-thumb.jpg": [
+853,
+900
+],
+"images/firepit-evolution/2-thumb.jpg": [
+846,
+900
+],
+"images/firepit-evolution/3-thumb.jpg": [
+618,
+900
+],
+"images/firepit-evolution/4-thumb.jpg": [
+900,
+599
+],
+"images/firepit-interconnected/1-large.jpg": [
+1197,
+1800
+],
+"images/firepit-interconnected/2-large.jpg": [
+1197,
+1800
+],
+"images/firepit-interconnected/3-large.jpg": [
+1197,
+1800
+],
+"images/firepit-interconnected/4-large.jpg": [
+1197,
+1800
+],
+"images/firepit-interconnected/1-thumb.jpg": [
+599,
+900
+],
+"images/firepit-interconnected/2-thumb.jpg": [
+599,
+900
+],
+"images/firepit-interconnected/3-thumb.jpg": [
+599,
+900
+],
+"images/firepit-interconnected/4-thumb.jpg": [
+599,
+900
+],
+"images/firepit-irony/1-large.jpg": [
+1024,
+1021
+],
+"images/firepit-irony/2-large.jpg": [
+707,
+1024
+],
+"images/firepit-irony/3-large.jpg": [
+1024,
+631
+],
+"images/firepit-irony/1-thumb.jpg": [
+900,
+897
+],
+"images/firepit-irony/2-thumb.jpg": [
+621,
+900
+],
+"images/firepit-irony/3-thumb.jpg": [
+900,
+554
+],
+"images/bell-hanger/1-large.jpg": [
+1800,
+1350
+],
+"images/bell-hanger/2-large.jpg": [
+1800,
+1350
+],
+"images/bell-hanger/1-thumb.jpg": [
+900,
+675
+],
+"images/bell-hanger/2-thumb.jpg": [
+900,
+675
+],
+"images/bettys-lamp/1-large.jpg": [
+604,
+1800
+],
+"images/bettys-lamp/2-large.jpg": [
+1800,
+1350
+],
+"images/bettys-lamp/1-thumb.jpg": [
+302,
+900
+],
+"images/bettys-lamp/2-thumb.jpg": [
+900,
+675
+]
+}
