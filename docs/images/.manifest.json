@@ -119,222 +119,6 @@
 850,
 1280
 ],
-"images/site/dsc2116-large-large.jpg": [
-1280,
-850
-],
-"images/marianas/primary-large.jpg": [
-1800,
-1020
-],
-"images/marianas/primary-thumb.jpg": [
-900,
-510
-],
-"images/site/hero-hero.jpg": [
-1918,
-842
-],
-"images/marianas/1-large.jpg": [
-1800,
-1288
-],
-"images/marianas/2-large.jpg": [
-1800,
-1594
-],
-"images/marianas/3-large.jpg": [
-1434,
-1800
-],
-"images/marianas/4-large.jpg": [
-1192,
-1800
-],
-"images/marianas/5-large.jpg": [
-1364,
-1800
-],
-"images/marianas/6-large.jpg": [
-1559,
-1800
-],
-"images/marianas/1-thumb.jpg": [
-900,
-644
-],
-"images/marianas/2-thumb.jpg": [
-900,
-797
-],
-"images/marianas/3-thumb.jpg": [
-717,
-900
-],
-"images/marianas/4-thumb.jpg": [
-596,
-900
-],
-"images/marianas/5-thumb.jpg": [
-682,
-900
-],
-"images/marianas/6-thumb.jpg": [
-779,
-900
-],
-"images/marianas/process/1-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/2-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/3-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/4-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/5-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/6-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/7-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/8-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/9-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/10-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/11-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/12-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/13-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/14-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/15-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/16-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/17-large.jpg": [
-1800,
-1350
-],
-"images/marianas/process/18-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/19-large.jpg": [
-1350,
-1800
-],
-"images/marianas/process/1-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/2-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/3-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/4-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/5-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/6-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/7-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/8-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/9-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/10-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/11-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/12-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/13-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/14-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/15-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/16-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/17-thumb.jpg": [
-900,
-675
-],
-"images/marianas/process/18-thumb.jpg": [
-675,
-900
-],
-"images/marianas/process/19-thumb.jpg": [
-675,
-900
-],
 "images/spirit-uplifting/1-large.jpg": [
 987,
 1779
@@ -750,5 +534,221 @@
 "images/lukes-lamp/2-thumb.jpg": [
 900,
 675
+],
+"images/site/hero.jpg": [
+1918,
+842
+],
+"images/site/portrait.jpg": [
+1280,
+850
+],
+"images/marianas/primary-large.jpg": [
+1800,
+1020
+],
+"images/marianas/primary-thumb.jpg": [
+900,
+510
+],
+"images/marianas/1-large.jpg": [
+1800,
+1288
+],
+"images/marianas/1-thumb.jpg": [
+900,
+644
+],
+"images/marianas/2-large.jpg": [
+1800,
+1594
+],
+"images/marianas/2-thumb.jpg": [
+900,
+797
+],
+"images/marianas/3-large.jpg": [
+1434,
+1800
+],
+"images/marianas/3-thumb.jpg": [
+717,
+900
+],
+"images/marianas/4-large.jpg": [
+1192,
+1800
+],
+"images/marianas/4-thumb.jpg": [
+596,
+900
+],
+"images/marianas/5-large.jpg": [
+1364,
+1800
+],
+"images/marianas/5-thumb.jpg": [
+682,
+900
+],
+"images/marianas/6-large.jpg": [
+1559,
+1800
+],
+"images/marianas/6-thumb.jpg": [
+779,
+900
+],
+"images/marianas/process/1-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/1-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/2-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/2-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/3-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/3-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/4-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/4-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/5-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/5-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/6-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/6-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/7-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/7-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/8-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/8-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/9-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/9-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/10-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/10-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/11-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/11-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/12-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/12-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/13-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/13-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/14-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/14-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/15-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/15-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/16-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/16-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/17-large.jpg": [
+1800,
+1350
+],
+"images/marianas/process/17-thumb.jpg": [
+900,
+675
+],
+"images/marianas/process/18-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/18-thumb.jpg": [
+675,
+900
+],
+"images/marianas/process/19-large.jpg": [
+1350,
+1800
+],
+"images/marianas/process/19-thumb.jpg": [
+675,
+900
 ]
 }

@@ -10,14 +10,20 @@ title = "Alisa Formway Roe"
 subtitle = "Sculpture in Steel & Bronze"
 description = "Portfolio of Alisa Formway Roe — abstract and functional sculpture in welded mild, corten, and stainless steel, and bronze."
 email = "AFRoeMetalwork@gmail.com"
-# Folder (relative to this repo) that holds one subfolder per work:
+about_photo = "images/site/portrait.jpg"
+
+# Where import_photos.py looks for original photographs when you add new
+# work. None of this needs to be present to run build.py — the site is
+# built from the images already stored in docs/images/.
+[import]
 source_dir = "2026 filtered portfolio"
-about_photo = "Artist Statement, bio and cost analysis/Artist photo 4:21/_DSC2116 Large.jpeg"
+hero = "2026 filtered portfolio/Hero.JPG"
+portrait = "Artist Statement, bio and cost analysis/Artist photo 4:21/_DSC2116 Large.jpeg"
 
 [hero]
-# Banner image at the top of the home page, relative to source_dir.
+# Banner image at the top of the home page, within docs/.
 # Shown at its own aspect ratio, so crop the file itself to taste.
-image = "Hero.JPG"
+image = "images/site/hero.jpg"
 alt = "Detail of a welded steel sculpture"
 quote = "I cut and bend, hammer and weld steel into abstracted representative forms."
 
@@ -74,11 +80,10 @@ text = "Cedarhurst Biennial Sculpture Competition and Maquette Exhibition (final
 
 # ============================================================
 #  Works, in the order they appear in the gallery.
-#  folder    — subfolder of source_dir (exact name, including any
-#              trailing spaces)
-#  primary   — cover image; defaults to a file named Primary.*
-#  All other .jpg/.jpeg files in the folder appear on the work's
-#  page in alphabetical order.
+#  slug      — also names the image folder: docs/images/<slug>/
+#  folder    — original photo folder; used only by import_photos.py
+#  Photographs come from docs/images/<slug>/: the "primary" pair is the
+#  cover and lead image, and 1, 2, 3 … follow in the More views strip.
 # ============================================================
 
 [[projects]]
