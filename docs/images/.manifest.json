@@ -71,14 +71,6 @@
 1800,
 1350
 ],
-"images/susie-baird-gate/primary-thumb.jpg": [
-600,
-900
-],
-"images/susie-baird-gate/primary-large.jpg": [
-1200,
-1800
-],
 "images/16th-street/primary-thumb.jpg": [
 897,
 900
@@ -118,22 +110,6 @@
 "images/firepit-irony/primary-large.jpg": [
 1000,
 1024
-],
-"images/bell-hanger/primary-thumb.jpg": [
-675,
-900
-],
-"images/bell-hanger/primary-large.jpg": [
-1350,
-1800
-],
-"images/bettys-lamp/primary-thumb.jpg": [
-900,
-675
-],
-"images/bettys-lamp/primary-large.jpg": [
-1800,
-1350
 ],
 "images/candle-sticks/primary-thumb.jpg": [
 597,
@@ -575,38 +551,6 @@
 370,
 900
 ],
-"images/susie-baird-gate/1-large.jpg": [
-1195,
-1800
-],
-"images/susie-baird-gate/2-large.jpg": [
-1200,
-1800
-],
-"images/susie-baird-gate/3-large.jpg": [
-1199,
-1800
-],
-"images/susie-baird-gate/4-large.jpg": [
-1200,
-1800
-],
-"images/susie-baird-gate/1-thumb.jpg": [
-597,
-900
-],
-"images/susie-baird-gate/2-thumb.jpg": [
-600,
-900
-],
-"images/susie-baird-gate/3-thumb.jpg": [
-600,
-900
-],
-"images/susie-baird-gate/4-thumb.jpg": [
-600,
-900
-],
 "images/16th-street/1-large.jpg": [
 1800,
 1350
@@ -743,35 +687,67 @@
 900,
 554
 ],
-"images/bell-hanger/1-large.jpg": [
+"images/susies-gate/primary-large.jpg": [
+1200,
+1800
+],
+"images/susies-gate/1-large.jpg": [
+1195,
+1800
+],
+"images/susies-gate/2-large.jpg": [
+1200,
+1800
+],
+"images/susies-gate/3-large.jpg": [
+1199,
+1800
+],
+"images/susies-gate/4-large.jpg": [
+1200,
+1800
+],
+"images/susies-gate/primary-thumb.jpg": [
+600,
+900
+],
+"images/susies-gate/1-thumb.jpg": [
+597,
+900
+],
+"images/susies-gate/2-thumb.jpg": [
+600,
+900
+],
+"images/susies-gate/3-thumb.jpg": [
+600,
+900
+],
+"images/susies-gate/4-thumb.jpg": [
+600,
+900
+],
+"images/lukes-lamp/primary-large.jpg": [
 1800,
 1350
 ],
-"images/bell-hanger/2-large.jpg": [
-1800,
-1350
-],
-"images/bell-hanger/1-thumb.jpg": [
-900,
-675
-],
-"images/bell-hanger/2-thumb.jpg": [
-900,
-675
-],
-"images/bettys-lamp/1-large.jpg": [
+"images/lukes-lamp/1-large.jpg": [
 604,
 1800
 ],
-"images/bettys-lamp/2-large.jpg": [
+"images/lukes-lamp/2-large.jpg": [
 1800,
 1350
 ],
-"images/bettys-lamp/1-thumb.jpg": [
+"images/lukes-lamp/primary-thumb.jpg": [
+900,
+675
+],
+"images/lukes-lamp/1-thumb.jpg": [
 302,
 900
 ],
-"images/bettys-lamp/2-thumb.jpg": [
+"images/lukes-lamp/2-thumb.jpg": [
 900,
 675
 ]
