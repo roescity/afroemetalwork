@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """Static-site generator for AFRoeMetalwork.
 
-Reads site.toml + the portfolio image folders, writes a complete site
-into docs/ (which GitHub Pages serves). Images are resized with sips
-(built into macOS) into web-friendly sizes; originals are never touched.
+Writes the site's HTML from site.toml and the photographs already stored
+in docs/images/. Those images ARE the site's copy of the artwork: they
+are committed to the repo, so this runs on any machine with Python 3.11+
+and needs neither the original photo folders nor macOS.
+
+To add or replace photographs, use import_photos.py, which resizes
+originals into docs/images/. Then run this.
 
 Usage:
-    python3 build.py            # incremental (skips images already done)
-    python3 build.py --force    # regenerate everything, including images
+    python3 build.py
 """
 
 import html
 import json
 import re
 import shutil
-import subprocess
 import sys
 import tomllib
 from datetime import date
@@ -23,16 +25,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "docs"
 ASSETS = ROOT / "assets"
-SIZES = {
-    "hero": 2400,   # home-page banner (never upscaled)
-    "large": 1800,  # work-page lead image / lightbox
-    "thumb": 900,   # gallery cards and view strips
-}
-QUALITY = "82"    # JPEG quality percent
-
-FORCE = "--force" in sys.argv
-
-IMAGE_EXTS = {".jpg", ".jpeg"}
+IMAGES = OUT / "images"
+MANIFEST = IMAGES / ".manifest.json"
 
 # Every file this run produces, as docs-relative posix paths. Anything
 # else found in docs/ afterwards is left over from a deleted work or
@@ -56,76 +50,54 @@ def slugify(s: str) -> str:
 
 
 def natural_key(name: str):
-    """Sort so 2.jpg comes before 10.jpg (see rename_images.py)."""
+    """Sort so 2 comes before 10."""
     return [int(t) if t.isdigit() else t.lower()
             for t in re.split(r"(\d+)", name)]
 
 
-def images_in(folder: Path):
-    """Image files directly inside folder (not subfolders), in display order."""
-    return sorted(
-        (p for p in folder.iterdir()
-         if p.is_file() and p.suffix.lower() in IMAGE_EXTS),
-        key=lambda p: natural_key(p.name),
-    )
+class Photos:
+    """The photographs stored under docs/images/, with their dimensions.
 
-
-def sips_dims(path: Path):
-    out = subprocess.run(
-        ["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(path)],
-        check=True, capture_output=True, text=True,
-    ).stdout
-    w = int(re.search(r"pixelWidth: (\d+)", out).group(1))
-    h = int(re.search(r"pixelHeight: (\d+)", out).group(1))
-    return w, h
-
-
-def resize(src: Path, dst: Path, max_px: int):
-    """Resize src to dst with the long edge at most max_px (never upscale)."""
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    w, h = sips_dims(src)
-    if max(w, h) <= max_px:
-        cmd = ["sips", "-s", "format", "jpeg", "-s", "formatOptions", QUALITY,
-               str(src), "--out", str(dst)]
-    else:
-        cmd = ["sips", "--resampleHeightWidthMax", str(max_px),
-               "-s", "format", "jpeg", "-s", "formatOptions", QUALITY,
-               str(src), "--out", str(dst)]
-    subprocess.run(cmd, check=True, capture_output=True)
-
-
-class ImagePipeline:
-    """Turns source photos into docs/images/... and remembers dimensions."""
+    Each artwork folder holds a '<base>-large.jpg' and '<base>-thumb.jpg'
+    for every photograph, where base is 'primary' (the cover and lead
+    image) or a number. Dimensions come from the committed manifest, so
+    no image library is needed to build the site.
+    """
 
     def __init__(self):
-        self.manifest_path = OUT / "images" / ".manifest.json"
         try:
-            self.manifest = json.loads(self.manifest_path.read_text())
+            self.dims = json.loads(MANIFEST.read_text())
         except (OSError, json.JSONDecodeError):
-            self.manifest = {}
+            sys.exit(f"ERROR: cannot read {MANIFEST}. Run import_photos.py.")
 
-    def process(self, src: Path, rel_dir: str, kind: str):
-        """kind: one of SIZES. Returns (site-relative path, w, h)."""
-        max_px = SIZES[kind]
-        name = f"{slugify(src.stem)}-{kind}.jpg"
-        rel = f"images/{rel_dir}/{name}"
-        dst = OUT / rel
-        stale = FORCE or not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime
-        if stale:
-            print(f"  · {rel}")
-            resize(src, dst, max_px)
-            self.manifest.pop(rel, None)
-        if rel not in self.manifest:
-            w, h = sips_dims(dst)
-            self.manifest[rel] = [w, h]
-        KEPT.add(rel)
-        w, h = self.manifest[rel]
+    def size(self, rel: str):
+        if rel not in self.dims:
+            sys.exit(f"ERROR: {rel} is missing from {MANIFEST.name}. "
+                     "Run import_photos.py to regenerate it.")
+        w, h = self.dims[rel]
         return rel, w, h
 
-    def save(self):
-        self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        live = {k: v for k, v in self.manifest.items() if k in KEPT}
-        self.manifest_path.write_text(json.dumps(live, indent=0))
+    def _bases(self, folder: Path):
+        bases = {f.name[: -len("-large.jpg")] for f in folder.glob("*-large.jpg")}
+        ordered = sorted(bases - {"primary"}, key=natural_key)
+        return (["primary"] if "primary" in bases else []) + ordered
+
+    def series(self, rel_dir: str, what: str):
+        """[(large, thumb)] for one artwork or process folder, in order."""
+        folder = OUT / rel_dir
+        if not folder.is_dir():
+            sys.exit(f"ERROR: no photographs for {what}: {folder} does not exist.\n"
+                     "       Add them with import_photos.py.")
+        bases = self._bases(folder)
+        if not bases:
+            sys.exit(f"ERROR: no photographs for {what} in {folder}.")
+        out = []
+        for b in bases:
+            large = self.size(f"{rel_dir}/{b}-large.jpg")
+            thumb_rel = f"{rel_dir}/{b}-thumb.jpg"
+            thumb = self.size(thumb_rel) if (OUT / thumb_rel).exists() else large
+            out.append((large, thumb))
+        return out
 
 
 def paragraphs(text: str, cls: str = "") -> str:
@@ -209,11 +181,10 @@ def main():
     hero = data["hero"]
     about = data["about"]
     projects = data["projects"]
-    src_root = ROOT / site["source_dir"]
 
     OUT.mkdir(exist_ok=True)
     (OUT / ".nojekyll").touch()
-    pipe = ImagePipeline()
+    photos = Photos()
 
     # ---- assets ------------------------------------------------------
     out_assets = OUT / "assets"
@@ -224,50 +195,21 @@ def main():
             KEPT.add(f"assets/{f.name}")
     write_page(OUT / "favicon.svg", FAVICON)
 
-    # ---- collect + process images per project -----------------------
+    # ---- gather the stored photographs per project -------------------
     for p in projects:
-        folder = src_root / p["folder"]
-        if not folder.is_dir():
-            sys.exit(f"ERROR: folder not found for {p['slug']}: {folder!r}")
-        imgs = images_in(folder)
-        if not imgs:
-            sys.exit(f"ERROR: no images in {folder!r}")
-
-        primary_name = p.get("primary", "")
-        if primary_name:
-            primary = folder / primary_name
-            if not primary.exists():
-                sys.exit(f"ERROR: primary {primary_name!r} missing in {folder!r}")
-        else:
-            named = [i for i in imgs if i.stem.lower() == "primary"]
-            primary = named[0] if named else imgs[0]
-            if not named:
-                print(f"  ! {p['slug']}: no Primary image; using {primary.name}")
-
-        p["_primary_src"] = primary
-        p["_secondary_src"] = [i for i in imgs if i != primary]
-
-        print(f"[{p['slug']}]")
-        ordered = [primary] + p["_secondary_src"]
-        p["_large"] = [pipe.process(i, p["slug"], "large") for i in ordered]
-        p["_thumbs"] = [pipe.process(i, p["slug"], "thumb") for i in ordered]
+        series = photos.series(f"images/{p['slug']}", p["title"])
+        p["_large"] = [large for large, _ in series]
+        p["_thumbs"] = [thumb for _, thumb in series]
         p["_thumb"] = p["_thumbs"][0]
 
-        proc_name = p.get("process_folder", "")
-        if proc_name:
-            proc_dir = folder / proc_name
-            p["_process"] = [pipe.process(i, f"{p['slug']}/process", "large")
-                             for i in images_in(proc_dir)]
-            p["_process_thumbs"] = [pipe.process(i, f"{p['slug']}/process", "thumb")
-                                    for i in images_in(proc_dir)]
+        if p.get("process_folder"):
+            proc = photos.series(f"images/{p['slug']}/process",
+                                 f"{p['title']} process")
+            p["_process"] = [large for large, _ in proc]
+            p["_process_thumbs"] = [thumb for _, thumb in proc]
 
-    # hero + about photo
-    hero_src = src_root / hero["image"]
-    if not hero_src.exists():
-        sys.exit(f"ERROR: hero image not found: {hero_src!r}")
-    hero_img = pipe.process(hero_src, "site", "hero")
-    about_img = pipe.process(ROOT / site["about_photo"], "site", "large")
-    pipe.save()
+    hero_img = photos.size(hero["image"])
+    about_img = photos.size(site["about_photo"])
 
     # ---- home page ---------------------------------------------------
     cards = "\n".join(card(p, p["_thumb"]) for p in projects)
@@ -449,13 +391,20 @@ def write_page(path: Path, content: str):
 
 
 def prune():
-    """Delete generated files left over from removed works or photos."""
+    """Delete generated pages left over from works that were removed.
+
+    Only pages and copied assets are pruned. Everything under images/ is
+    the stored artwork itself, not build output, so it is never touched
+    here — remove photographs with import_photos.py instead.
+    """
     for path in sorted(OUT.rglob("*"), reverse=True):
+        rel = path.relative_to(OUT).as_posix()
+        if rel == "images" or rel.startswith("images/"):
+            continue
         if path.is_dir():
             if not any(path.iterdir()):
                 path.rmdir()
             continue
-        rel = path.relative_to(OUT).as_posix()
         if rel not in KEPT and rel not in PRESERVE:
             print(f"  – removed {rel}")
             path.unlink()
