@@ -382,7 +382,7 @@ def main():
                 # A card on the home page lands part way down this page, so
                 # each work states its own materials and where it falls in
                 # the series rather than relying on the header above.
-                place = f'{ordinal(i + 1)} in series'
+                place = f'{ordinal(i + 1)} in <a href="#top">series</a>'
                 stone = tombstone(mp)
                 label = (f'\n    <p class="tombstone">{stone}</p>' if stone else "")
                 parts.append(
@@ -397,7 +397,7 @@ def main():
             sections = "\n".join(parts)
             body = f"""<main class="work">
 {make_pager(" pager-top")}
-  <header class="work-head">
+  <header class="work-head" id="top">
 {chr(10).join(head)}
   </header>
 {sections}

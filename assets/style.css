@@ -342,6 +342,9 @@ h1 {
 
 /* Where this work falls in the series — useful when a link from the home
    page lands part way down the page. */
+/* The series introduction, jumped to from each "Nth in series". */
+#top { scroll-margin-top: 1.5rem; }
+
 .series-index {
   font-family: var(--sans);
   font-size: 0.8rem;
@@ -351,6 +354,9 @@ h1 {
   color: var(--muted);
   white-space: nowrap;
 }
+
+.series-index a { color: var(--muted); text-decoration: underline; }
+.series-index a:hover { color: var(--accent); }
 
 /* --------------------------------------------- process teaser */
 
