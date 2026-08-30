@@ -20,6 +20,94 @@ source_dir = "2026 filtered portfolio"
 hero = "2026 filtered portfolio/Hero.JPG"
 portrait = "Artist Statement, bio and cost analysis/Artist photo 4:21/_DSC2116 Large.jpeg"
 
+# ============================================================
+#  Gallery layout — the home page, written out column by column.
+#
+#  Each inner list is one column, top to bottom. Every work must appear
+#  exactly once in each arrangement; the build refuses to run otherwise.
+#  Nothing here is decided by the browser, so re-cropping a photograph
+#  can never move a work. To rearrange the gallery, move slugs around.
+# ============================================================
+[layout]
+
+# Shown at 1040px and wider.
+three_columns = [
+  [
+    "marianas",
+    "spirit-uplifting",
+    "charis",
+    "fireplace",
+    "precarious",
+    "16th-street",
+  ],
+  [
+    "laminaria",
+    "tree-trunk-tangle-bench",
+    "susies-gate",
+    "turban-man",
+    "summer-reclining",
+    "stump-stool",
+  ],
+  [
+    "august-trunk",
+    "firepit-interconnected",
+    "firepit-evolution",
+    "firepit-irony",
+    "lukes-lamp",
+    "candle-sticks",
+  ],
+]
+
+# Shown from 700px to 1039px.
+two_columns = [
+  [
+    "marianas",
+    "spirit-uplifting",
+    "charis",
+    "16th-street",
+    "precarious",
+    "summer-reclining",
+    "lukes-lamp",
+    "candle-sticks",
+    "stump-stool",
+  ],
+  [
+    "august-trunk",
+    "laminaria",
+    "tree-trunk-tangle-bench",
+    "susies-gate",
+    "firepit-interconnected",
+    "firepit-evolution",
+    "firepit-irony",
+    "fireplace",
+    "turban-man",
+  ],
+]
+
+# Shown below 700px (phones).
+one_column = [
+  [
+    "august-trunk",
+    "marianas",
+    "laminaria",
+    "spirit-uplifting",
+    "tree-trunk-tangle-bench",
+    "susies-gate",
+    "charis",
+    "firepit-interconnected",
+    "firepit-evolution",
+    "firepit-irony",
+    "fireplace",
+    "precarious",
+    "16th-street",
+    "lukes-lamp",
+    "candle-sticks",
+    "summer-reclining",
+    "turban-man",
+    "stump-stool",
+  ],
+]
+
 [hero]
 # Banner image at the top of the home page, within docs/.
 # Shown at its own aspect ratio, so crop the file itself to taste.
@@ -68,6 +156,25 @@ text = "The Big Rock Garden juried exhibition (finalist), Bellingham, Washington
 [[about.exhibitions]]
 year = "2008"
 text = "Cedarhurst Biennial Sculpture Competition and Maquette Exhibition (finalist), Mt. Vernon, Illinois — August Trunk maquette"
+
+# ============================================================
+#  Series — several works that share one page. Each member keeps its own
+#   record and its own card on the home page; only the page is
+#  shared. A member needs series, series_title and series_anchor set.
+# ============================================================
+
+[[series]]
+slug = "firepit-series"
+title = "Firepit Series"
+cover = "firepit-evolution"
+members = [
+  "firepit-interconnected",
+  "firepit-irony",
+  "firepit-evolution",
+]
+description = """
+Fire has always fascinated me, both as a physical source of warmth and as a place around which people gather. In these three firepits, a functional object becomes a circular narrative. Cut-steel forms surround the flame with images of evolution, human connection, and the uneasy relationship between trees and fire.
+"""
 
 # ============================================================
 #  Works, in the order they appear in the gallery.
@@ -250,33 +357,42 @@ August Trunk stood in downtown Lake Oswego, Oregon from 2009 to 2011 as part of 
 slug = "firepit-evolution"
 folder = "Firepit Evolution"
 title = "Firepit — Evolution"
+series = "firepit-series"
+series_title = "Evolution"
+series_anchor = "evolution"
 materials = "Mild steel"
 dimensions = "36″ × 36″ × 27″"
-year = "2008"
+year = "2009"
 description = """
-Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support around fire. The design elements of this firepit highlight the path of life in the oceans moving onto land. Made of 8 story panels assembled in 4 hinged pairs, the overall firepit can be easily stored off season with only the large fire dish and grate taking any significant space.
+The imagery in Evolution traces the movement of life from the oceans onto land. Eight story panels are assembled as four hinged pairs, allowing the surround to fold for off-season storage; only the large fire dish and grate remain separate.
 """
 
 [[projects]]
 slug = "firepit-interconnected"
 folder = "Firepit Interconnected"
 title = "Firepit — Interconnected"
+series = "firepit-series"
+series_title = "Interconnected"
+series_anchor = "interconnected"
 materials = "Mild steel"
 dimensions = "36″ × 36″ × 36″"
 year = "2008"
 description = """
-Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support around fire. This large round firepit consists of 5 faces of various ethnicity to represent the diversity and beauty of the peoples of the world. These faces are woven together with bands of metal that intermittently start and stop to indicate the fragility of our connectedness as war rages and burns around the world.
+Interconnected brings together five faces representing the diversity of the world's peoples. Bands of steel weave the faces together, beginning, breaking, and resuming around the circle to suggest both the beauty of human connection and its fragility in a world marked by conflict.
 """
 
 [[projects]]
 slug = "firepit-irony"
 folder = "Firepit Irony"
 title = "Firepit — Irony"
+series = "firepit-series"
+series_title = "Irony"
+series_anchor = "irony"
 materials = "Mild steel"
 dimensions = "36″ × 36″ × 27″"
-year = "2008"
+year = "2009"
 description = """
-Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support, around fire. I have loved trees in a special way for as long as I can remember. Simultaneously I am drawn to fire. Made of 8 story panels assembled in 4 hinged pairs, the overall firepit can be easily stored off season with only the large fire dish and grate taking any significant space. It strikes me that as flame consumes wood it makes the imagery of these 4 paired panels, ironic.
+I have long been drawn both to trees and to fire. In Irony, flames consume the wood represented in the surrounding panels, setting the function of the object in deliberate contradiction with its imagery. Like Evolution, its eight story panels are assembled as four hinged pairs for storage.
 """
 
 [[projects]]

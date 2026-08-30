@@ -13,6 +13,7 @@ Usage:
     python3 build.py
 """
 
+import hashlib
 import html
 import json
 import re
@@ -47,6 +48,25 @@ def esc(s: str) -> str:
 def slugify(s: str) -> str:
     s = re.sub(r"[^A-Za-z0-9]+", "-", s.lower())
     return s.strip("-") or "img"
+
+
+def asset_version(name: str) -> str:
+    """Short content hash, appended to asset URLs.
+
+    Without it a browser keeps serving the stylesheet it cached before the
+    last deploy, so a visitor sees new pages with old styling.
+    """
+    digest = hashlib.sha256((ASSETS / name).read_bytes()).hexdigest()
+    return digest[:8]
+
+
+def ordinal(n: int) -> str:
+    """1 -> '1st', 2 -> '2nd', 11 -> '11th'."""
+    if 10 <= n % 100 <= 20:
+        suffix = "th"
+    else:
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
 
 
 def natural_key(name: str):
@@ -110,7 +130,9 @@ def paragraphs(text: str, cls: str = "") -> str:
 # --------------------------------------------------------------- templates
 
 def page(*, rel: str, title: str, description: str, body: str,
-         site: dict, active: str = "", og_image: str = "") -> str:
+         site: dict, active: str = "", og_image: str = "",
+         versions: dict | None = None) -> str:
+    versions = versions or {}
     home = rel if rel else "./"
     og = (f'\n  <meta property="og:image" content="{esc(og_image)}">'
           if og_image else "")
@@ -129,7 +151,7 @@ def page(*, rel: str, title: str, description: str, body: str,
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{rel}assets/style.css">
+  <link rel="stylesheet" href="{rel}assets/style.css?v={versions.get('style.css', '')}">
 </head>
 <body>
 <header class="site-head">
@@ -147,7 +169,7 @@ def page(*, rel: str, title: str, description: str, body: str,
   <p>{esc(site['title'])} &nbsp;·&nbsp; <a href="mailto:{esc(site['email'])}">{esc(site['email'])}</a></p>
   <p class="fineprint">© {year} {esc(site['title'])}. All works copyright the artist.</p>
 </footer>
-<script src="{rel}assets/lightbox.js" defer></script>
+<script src="{rel}assets/lightbox.js?v={versions.get('lightbox.js', '')}" defer></script>
 </body>
 </html>
 """
@@ -160,16 +182,46 @@ def tombstone(p: dict) -> str:
     return " &nbsp;·&nbsp; ".join(bits)
 
 
-def card(p: dict, thumb) -> str:
+def card(p: dict, thumb, href: str) -> str:
     rel_img, w, h = thumb
     meta = (f'\n    <span class="card-meta">{esc(p["materials"])}</span>'
             if p.get("materials") else "")
-    return f"""<a class="card" href="work/{p['slug']}/">
+    return f"""<a class="card" href="{href}">
   <img src="{rel_img}" width="{w}" height="{h}" alt="{esc(p['title'])}" loading="lazy">
   <span class="card-label">
     <span class="card-title">{esc(p['title'])}</span>{meta}
   </span>
 </a>"""
+
+
+def figures(p: dict, rel: str, group: str, alt: str, lead_first: bool):
+    """The lead photograph and the strip of further views for one work.
+
+    `group` scopes the lightbox: on a series page each work keeps its own
+    group, so the arrows cycle within that work rather than the whole page.
+    """
+    lead_src, lw, lh = p["_large"][0]
+    priority = ' fetchpriority="high"' if lead_first else ' loading="lazy"'
+    lead = (f'<figure class="lead">'
+            f'<a href="{rel}{lead_src}" data-lightbox="{group}">'
+            f'<img src="{rel}{lead_src}" width="{lw}" height="{lh}" '
+            f'alt="{esc(alt)}"{priority}></a></figure>')
+
+    views = ""
+    if len(p["_large"]) > 1:
+        tiles = "\n".join(
+            f'    <a class="view" href="{rel}{full}" data-lightbox="{group}">'
+            f'<img src="{rel}{tn}" width="{tw}" height="{th}" '
+            f'alt="{esc(alt)} — view {i + 2}" loading="lazy"></a>'
+            for i, ((full, _, _), (tn, tw, th))
+            in enumerate(zip(p["_large"][1:], p["_thumbs"][1:])))
+        views = f"""<section class="views">
+  <h2 class="views-label">More views</h2>
+  <div class="views-strip">
+{tiles}
+  </div>
+</section>"""
+    return lead, views
 
 
 # --------------------------------------------------------------- build
@@ -194,6 +246,8 @@ def main():
             shutil.copy2(f, out_assets / f.name)
             KEPT.add(f"assets/{f.name}")
     write_page(OUT / "favicon.svg", FAVICON)
+    versions = {f.name: asset_version(f.name)
+                for f in ASSETS.iterdir() if f.is_file()}
 
     # ---- gather the stored photographs per project -------------------
     for p in projects:
@@ -212,7 +266,54 @@ def main():
     about_img = photos.size(site["about_photo"])
 
     # ---- home page ---------------------------------------------------
-    cards = "\n".join(card(p, p["_thumb"]) for p in projects)
+    # The gallery is written out column by column in site.toml, once per
+    # breakpoint. Each arrangement becomes its own block and CSS shows the
+    # one that fits, so the browser never chooses a column for us.
+    by_slug = {p["slug"]: p for p in projects}
+
+    # A series gathers several works onto one page. The works keep their own
+    # records and their own cards on the home page; only the page is shared.
+    series_by_slug = {x["slug"]: x for x in data.get("series", [])}
+    member_series = {}
+    for sr in series_by_slug.values():
+        for m in sr["members"]:
+            if m not in by_slug:
+                sys.exit(f"ERROR: [[series]] {sr['slug']} lists an unknown work: {m}")
+            for field in ("series_title", "series_anchor"):
+                if not by_slug[m].get(field):
+                    sys.exit(f"ERROR: {m} is in series {sr['slug']} but has no {field}")
+            member_series[m] = sr
+
+    def work_href(proj: dict, prefix: str = "work/") -> str:
+        """Where a work's card or link points — a series member goes to its
+        section of the shared page."""
+        sr = member_series.get(proj["slug"])
+        if sr:
+            return f"{prefix}{sr['slug']}/#{proj['series_anchor']}"
+        return f"{prefix}{proj['slug']}/"
+
+    galleries = []
+    for key, css in (("three_columns", "gallery-3"),
+                     ("two_columns", "gallery-2"),
+                     ("one_column", "gallery-1")):
+        arrangement = data["layout"][key]
+        listed = [slug for col in arrangement for slug in col]
+        if sorted(listed) != sorted(by_slug):
+            missing = sorted(set(by_slug) - set(listed))
+            extra = sorted(set(listed) - set(by_slug))
+            dupes = sorted({s for s in listed if listed.count(s) > 1})
+            sys.exit(f"ERROR: [layout] {key} does not list every work exactly once."
+                     + (f"\n  missing: {', '.join(missing)}" if missing else "")
+                     + (f"\n  unknown: {', '.join(extra)}" if extra else "")
+                     + (f"\n  repeated: {', '.join(dupes)}" if dupes else ""))
+        cols = "\n".join(
+            '<div class="gcol">\n'
+            + "\n".join(card(by_slug[slug], by_slug[slug]["_thumb"],
+                                work_href(by_slug[slug])) for slug in col)
+            + "\n</div>"
+            for col in arrangement)
+        galleries.append(f'<section class="gallery {css}">\n{cols}\n</section>')
+
     hrel, hw, hh = hero_img
     body = f"""<main>
   <section class="hero">
@@ -222,19 +323,97 @@ def main():
     <p class="intro-quote">“{esc(hero['quote'])}”</p>
     <p class="intro-link"><a href="about/">About the artist →</a></p>
   </section>
-  <section class="grid" id="work">
-{cards}
-  </section>
+{chr(10).join(galleries)}
 </main>"""
     write_page(OUT / "index.html", page(
         rel="", title=f"{site['title']} — {site['subtitle']}",
         description=site["description"], body=body, site=site,
-        active="work", og_image=hrel))
+        active="work", og_image=hrel, versions=versions))
 
-    # ---- work pages --------------------------------------------------
-    n = len(projects)
-    for idx, p in enumerate(projects):
+    # ---- work and series pages ----------------------------------------
+    # Page order follows the project list, except that a series is a single
+    # stop: its members share one page, so previous/next skips over them.
+    sequence = []
+    for proj in projects:
+        sr = member_series.get(proj["slug"])
+        if sr is None:
+            sequence.append({"slug": proj["slug"], "title": proj["title"],
+                             "project": proj, "series": None})
+        elif not any(e["slug"] == sr["slug"] for e in sequence):
+            sequence.append({"slug": sr["slug"], "title": sr["title"],
+                             "project": None, "series": sr})
+
+    n = len(sequence)
+    for idx, entry in enumerate(sequence):
         rel = "../../"
+        prev_e, next_e = sequence[(idx - 1) % n], sequence[(idx + 1) % n]
+
+        def make_pager(extra: str = "") -> str:
+            return f"""<nav class="pager{extra}" aria-label="Works">
+  <a href="../{prev_e['slug']}/" rel="prev">← {esc(prev_e['title'])}</a>
+  <a class="pager-all" href="{rel}">All work</a>
+  <a href="../{next_e['slug']}/" rel="next">{esc(next_e['title'])} →</a>
+</nav>"""
+
+        # ---- a series: one page, one section per work ------------------
+        if entry["series"]:
+            sr = entry["series"]
+            head = [f'<h1>{esc(sr["title"])}</h1>']
+            if tombstone(sr):
+                head.append(f'<p class="tombstone">{tombstone(sr)}</p>')
+            if sr.get("description"):
+                head.append(f'<div class="prose">\n'
+                            f'{paragraphs(sr["description"])}\n</div>')
+            head.append('<p class="series-nav">' + " · ".join(
+                f'<a href="#{esc(by_slug[m]["series_anchor"])}">'
+                f'{esc(by_slug[m]["series_title"])}</a>'
+                for m in sr["members"]) + '</p>')
+
+            parts = []
+            for i, m in enumerate(sr["members"]):
+                mp = by_slug[m]
+                # Each work keeps its own lightbox group, so the arrows stay
+                # within that work instead of running through the whole series.
+                lead, views = figures(mp, rel, esc(mp["slug"]),
+                                      mp["series_title"], lead_first=(i == 0))
+                mtext = (f'<div class="work-text prose">\n'
+                         f'{paragraphs(mp["description"])}\n</div>'
+                         if mp.get("description") else "")
+                # A card on the home page lands part way down this page, so
+                # each work states its own materials and where it falls in
+                # the series rather than relying on the header above.
+                place = f'{ordinal(i + 1)} in series'
+                stone = tombstone(mp)
+                label = (f'\n    <p class="tombstone">{stone}</p>' if stone else "")
+                parts.append(
+                    f'<section class="series-part" id="{esc(mp["series_anchor"])}">\n'
+                    f'  <header class="series-head">\n'
+                    f'    <h2>{esc(mp["series_title"])} '
+                    f'<span class="series-index">({place})</span></h2>'
+                    f'{label}\n'
+                    f'  </header>\n'
+                    f'{lead}\n{views}\n{mtext}\n</section>')
+
+            sections = "\n".join(parts)
+            body = f"""<main class="work">
+{make_pager(" pager-top")}
+  <header class="work-head">
+{chr(10).join(head)}
+  </header>
+{sections}
+{make_pager()}
+</main>"""
+            cover = by_slug.get(sr.get("cover", ""), by_slug[sr["members"][0]])
+            write_page(OUT / "work" / sr["slug"] / "index.html", page(
+                rel=rel, title=f"{sr['title']} — {site['title']}",
+                description=f"{sr['title']} by {site['title']}"
+                            + (f" — {sr['materials']}" if sr.get("materials") else ""),
+                body=body, site=site, active="work",
+                og_image=rel + cover["_large"][0][0], versions=versions))
+            continue
+
+        # ---- a single work ---------------------------------------------
+        p = entry["project"]
         stone = tombstone(p)
         head = [f'<h1>{esc(p["title"])}</h1>']
         if stone:
@@ -250,30 +429,7 @@ def main():
             text = (f'<div class="work-text prose">\n'
                     f'{paragraphs(p["description"])}\n</div>')
 
-        # Lead image is sized to fit the window (see .lead in style.css);
-        # any further views become a uniform-height strip that opens the
-        # lightbox, so a page never scrolls past half-visible photographs.
-        group = esc(p["slug"])
-        lead_src, lw, lh = p["_large"][0]
-        lead = (f'<figure class="lead">'
-                f'<a href="{rel}{lead_src}" data-lightbox="{group}">'
-                f'<img src="{rel}{lead_src}" width="{lw}" height="{lh}" '
-                f'alt="{esc(p["title"])}" fetchpriority="high"></a></figure>')
-
-        views = ""
-        if len(p["_large"]) > 1:
-            tiles = "\n".join(
-                f'    <a class="view" href="{rel}{full}" data-lightbox="{group}">'
-                f'<img src="{rel}{tn}" width="{tw}" height="{th}" '
-                f'alt="{esc(p["title"])} — view {i + 2}" loading="lazy"></a>'
-                for i, ((full, _, _), (tn, tw, th))
-                in enumerate(zip(p["_large"][1:], p["_thumbs"][1:])))
-            views = f"""<section class="views">
-  <h2 class="views-label">More views</h2>
-  <div class="views-strip">
-{tiles}
-  </div>
-</section>"""
+        lead, views = figures(p, rel, esc(p["slug"]), p["title"], lead_first=True)
 
         process_block = ""
         if p.get("_process"):
@@ -290,16 +446,6 @@ def main():
   </span>
 </a>"""
 
-        prev_p = projects[(idx - 1) % n]
-        next_p = projects[(idx + 1) % n]
-
-        def make_pager(extra: str = "") -> str:
-            return f"""<nav class="pager{extra}" aria-label="Works">
-  <a href="../{prev_p['slug']}/" rel="prev">← {esc(prev_p['title'])}</a>
-  <a class="pager-all" href="{rel}">All work</a>
-  <a href="../{next_p['slug']}/" rel="next">{esc(next_p['title'])} →</a>
-</nav>"""
-
         body = f"""<main class="work">
 {make_pager(" pager-top")}
   <header class="work-head">
@@ -315,7 +461,8 @@ def main():
             rel=rel, title=f"{p['title']} — {site['title']}",
             description=f"{p['title']} by {site['title']}"
                         + (f" — {p['materials']}" if p.get("materials") else ""),
-            body=body, site=site, active="work", og_image=rel + p["_large"][0][0]))
+            body=body, site=site, active="work",
+            og_image=rel + p["_large"][0][0], versions=versions))
 
         # process page
         if p.get("_process"):
@@ -339,7 +486,7 @@ def main():
             write_page(OUT / "work" / p["slug"] / "process" / "index.html", page(
                 rel=prel, title=f"{p.get('process_title', 'Process')} — {site['title']}",
                 description=f"Process photographs of {p['title']} by {site['title']}.",
-                body=body, site=site, active="work"))
+                body=body, site=site, active="work", versions=versions))
 
     # ---- about page --------------------------------------------------
     arel, aw, ah = about_img
@@ -378,7 +525,7 @@ def main():
         rel="../", title=f"About — {site['title']}",
         description=f"About the sculptor {site['title']}: artist statement, "
                     "biography, and exhibition history.",
-        body=body, site=site, active="about", og_image="../" + arel))
+        body=body, site=site, active="about", og_image="../" + arel, versions=versions))
 
     prune()
     print(f"\nDone → {OUT}")

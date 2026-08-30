@@ -137,13 +137,27 @@ a:focus-visible, button:focus-visible {
 
 /* ------------------------------------------------- work grid */
 
-.grid {
+/* The gallery is written out column by column in site.toml, once per
+   breakpoint, and each arrangement is emitted as its own block. Exactly
+   one is shown at any width, so the browser never balances anything and
+   re-cropping a photograph cannot move a work to another column. */
+.gallery {
+  display: none;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--pad) 3rem;
-  columns: 3 300px;
-  column-gap: 2.2rem;
+  gap: 2.2rem;
 }
+
+.gcol { flex: 1 1 0; min-width: 0; }
+
+@media (max-width: 699.98px) { .gallery-1 { display: flex; } }
+
+@media (min-width: 700px) and (max-width: 1039.98px) {
+  .gallery-2 { display: flex; }
+}
+
+@media (min-width: 1040px) { .gallery-3 { display: flex; } }
 
 .card {
   display: block;
@@ -290,6 +304,52 @@ h1 {
 .work-text {
   max-width: 44rem;
   margin: 3.2rem auto 0;
+}
+
+/* ----------------------------------------------------- series */
+
+/* Jump links to each work within a series page. */
+.series-nav {
+  margin: 1.8rem 0 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.series-nav a { color: var(--ink); }
+.series-nav a:hover { color: var(--accent); }
+
+/* One work inside a series page, ruled off from the one above it. */
+.series-part {
+  margin-top: 3.4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 1.5rem;
+}
+
+.series-head {
+  max-width: 44rem;
+  margin: 0 auto 1.8rem;
+}
+
+.series-head h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  line-height: 1.15;
+}
+
+.series-head .tombstone { margin: 0; }
+
+/* Where this work falls in the series — useful when a link from the home
+   page lands part way down the page. */
+.series-index {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* --------------------------------------------- process teaser */
