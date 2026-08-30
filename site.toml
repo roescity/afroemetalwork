@@ -8,7 +8,7 @@
 [site]
 title = "Alisa Formway Roe"
 subtitle = "Sculpture in Steel & Bronze"
-description = "Portfolio of Alisa Formway Roe — abstract and functional sculpture in welded mild, corten, and stainless steel, and bronze."
+description = "Portfolio of Alisa Formway Roe — abstract and functional sculpture in welded mild, corten, and stainless-steel, and bronze."
 email = "AFRoeMetalwork@gmail.com"
 about_photo = "images/site/portrait.jpg"
 
@@ -25,25 +25,16 @@ portrait = "Artist Statement, bio and cost analysis/Artist photo 4:21/_DSC2116 L
 # Shown at its own aspect ratio, so crop the file itself to taste.
 image = "images/site/hero.jpg"
 alt = "Detail of a welded steel sculpture"
-quote = "I cut and bend, hammer and weld steel into abstracted representative forms."
+quote = "I cut and bend, hammer and weld steel into abstracted representational forms."
 
 [about]
 statement = """
-I have always looked at the world as an artist. I see compositions of shapes and colors all around me and am compelled to create.
-
-Over twenty years ago, the idea of learning to work in metal was planted by work seen in a gallery in Santa Fe, New Mexico. Years later I had the opportunity to take a continuing-education class at the local community college — and found my medium.
-
-Metal is hard yet malleable, exacting while forgiving. It is labor intensive and heavy, but there is an appeal that continues to fascinate. I love that I can express myself artistically and also solve a practical problem, often with an unexpected aesthetic inclusion.
-
-I cut and bend, hammer and weld steel into abstracted representative forms. I enjoy composing in three dimensions, working to move the viewer around and within the positive and negative shapes. A design element exists as a solid form, and it exists again as the volume of space between two forms; I strive to compose these so that a dialog and a tension is created — enticing, even compelling, the viewer to move around the sculpture, following the lines of the form and enjoying the contrasts of tone and texture along the way.
-
-I want the aesthetics of my work to be visually and emotionally pleasing, and to leave enough room for interpretation that each viewer can respond individually to a piece. Ideally, what one sees can change with each visit, so that the work remains fresh over time.
+I work in welded steel and bronze, cutting, bending, hammering, and combining hard material into forms that feel fluid, organic, and alive. My sculptures often begin with a seminal idea that might be portrayed as a visually realistic form. I prefer, however, to play with the elemental shapes and how they combine to allow the viewer to imagine a different reality or potential. The sharp edges of my forms create a line that moves the eye within and around the overall piece and ideally will compel the viewer to explore the interplay of elements from different vantage points.  I want the aesthetics of my work to be pleasing, and to leave enough room for interpretation such that each viewer will respond uniquely to a piece. Ideally, what one sees can change with each visit, so that the work remains fresh over time. I love that I can express myself artistically but also solve practical problems, often with an unexpected aesthetic inclusion.
 """
 
-bio = """
-Alisa Formway Roe is a Pacific Northwest sculptor working in welded mild, corten, and stainless steels, as well as bronze. She received her Bachelor of Arts in Art History from the University of Washington in 1979. In 2005, after many years raising a family, she returned to her artistic orientation, taking sculpture and welding classes at Portland Community College, and soon opened a studio of her own.
+bio = """Alisa Formway Roe is a Pacific Northwest sculptor working in mild steel, corten or “weathering” steel, stainless-steel, and bronze. She earned a B.A. in Art History from the University of Washington in 1979. In 2005, after many years raising a family, she returned to making art through sculpture and welding classes at Portland Community College and later established her own studio.
+Her work ranges from intimate bronze figures to large outdoor sculpture and functional metalwork. It has been exhibited in Oregon, Washington, and Illinois and is held in the public collections of the City of Lake Oswego and Portland Community College, as well as in private collections.
 
-Her work ranges from intimate bronze figures and functional commissions — railings, gates, firepits, and lamps — to large-scale outdoor installations. Her sculpture has been exhibited in Oregon, Washington, and Illinois, and is held in the public collections of the City of Lake Oswego and Portland Community College's Rock Creek campus, as well as the private collections of individuals.
 """
 
 [[about.exhibitions]]
@@ -90,9 +81,9 @@ text = "Cedarhurst Biennial Sculpture Competition and Maquette Exhibition (final
 slug = "marianas"
 folder = "Marianas "
 title = "Marianas"
-materials = "Corten and stainless steel"
+materials = "Corten and stainless-steel"
 year = "2013"
-collection = "Installed in private home"
+collection = "In a private collection"
 dimensions = ""
 description = """
 This undulating curving form seems to swim in space and evokes unknown creatures of the deep as might be found in the Marianas Trench. The overall composition is a reworking of the primary elements that were not selected for a competitive commission. If you imagine the force required to bend a sheet of metal in multiple planes you will appreciate the effort employed to bring these three sheets together. Tremendous force and heat were needed all while focusing on the smooth curves and elegant line.
@@ -106,13 +97,14 @@ slug = "spirit-uplifting"
 folder = "Spirit Uplifting"
 title = "Spirit Uplifting"
 materials = "Stainless steel and gold leaf; corten steel base"
-collection = "Installed in private home"
+dimensions = "18″ × 18.5″ × 32.5″"
+collection = "In a private collection."
 year = "2011"
 exhibited = "The Language of Sculpture, Lake Oswego Festival of the Arts, 2011 · Sculptural Conversations, Bush Barn Art Center, Salem, Oregon, 2012"
 description = """
 Spirit Uplifting grew out of a series of works exploring the sweeping, twisting lines of stylized flame. As the piece developed it became more abstracted from that starting idea — a form more grounded than fire, yet similarly ethereal.
 
-The sculpture was first worked in clay. From that maquette, patterns were traced, enlarged, and cut from stainless steel — my first piece in that material. The form had to be worked up from the base on all sides at once, each plane drawn gracefully in to its neighbor with tremendous force for fit-up, tacking, and final TIG welding, all while managing the heat distortion that stainless invites. The inside corners could not be welded and cleaned afterward, so they were hammered from wedges and finished in gold leaf. They draw attention to the interior of the form — the spirit emerging from within.
+The sculpture was first worked in clay. From that maquette, patterns were traced, enlarged, and cut from stainless-steel — my first piece in that material. The form had to be worked up from the base on all sides at once, each plane drawn gracefully in to its neighbor with tremendous force for fit-up, tacking, and final TIG welding, all while managing the heat distortion that stainless invites. The inside corners could not be welded and cleaned afterward, so they were hammered from wedges and finished in gold leaf. They draw attention to the interior of the form — the spirit emerging from within.
 
 The double-stacked, rotating base is corten steel, chosen for the beauty of its patina and the contrast of that warmth against the cool tones of the stainless form.
 """
@@ -122,6 +114,7 @@ slug = "charis"
 folder = "Charis, Bronze Figure"
 title = "Charis"
 materials = "Silicon bronze; uba tuba granite and corten steel base"
+dimensions = "30″ × 30″ × 62″"
 year = "2008"
 collection = "Installed in private collection"
 description = """
@@ -136,8 +129,8 @@ folder = "Fireplace "
 title = "Fireplace"
 materials = "Mild steel"
 year = "2009"
-collection = "Installed in private home"
-dimensions = "93.5′′ wide 60′′ tall"
+collection = "In a private collection."
+dimensions = "62″ × 94″ × 16″"
 description = """
 This large fireplace, mantle and surround was a free-spirited interpretation of flames and wood. Made of mild steel painted and then waxed giving the appearance of bronze. The firebox for storing wood was on wheels was similarly finished.
 """
@@ -147,6 +140,7 @@ slug = "precarious"
 folder = "Precarious"
 title = "Precarious"
 materials = "Mild steel"
+dimensions = "54″ × 38.5″ × 48.5″"
 year = "2008"
 collection = "Permanent collection, Portland Community College Rock Creek Campus Learning Garden"
 exhibited = "Finalist, The Big Rock Garden juried exhibition, Bellingham, Washington, 2008"
@@ -159,10 +153,11 @@ slug = "summer-reclining"
 folder = "Summer Reclining"
 title = "Summer Reclining"
 materials = "Mild steel"
-collection = "Installed in private home"
+dimensions = "18″ × 18.5″ × 32.5″"
+collection = "In a private collection."
 year = "2007"
 description = """
-The deck panel was inspired by a painting of a reclining figure.
+Remodeling the deck of our home gave me a new place to imagine compositions of form and texture in metal. While more typically I am excited to compose three dimensionally employing both the positive and negative shapes, this location afforded the chance to “paint in metal”. I was specifically Inspired by Monet’s many reclining nudes in the composition. The stainless area of the implied abdomen spins in space on two pins highlighting the womb as the source of human life.  I found the potential for this format to be exciting and the possibilities unlimited.
 """
 
 [[projects]]
@@ -170,9 +165,10 @@ slug = "stump-stool"
 folder = "Stump Stool"
 title = "Stump Stool"
 materials = "Mild steel"
+dimensions = "18″ × 18.5″ × 32.5″"
 year = "2009"
 description = """
-My love of trees led me to imagine a stump that would not rot or burn. Fun playing with metal.
+My parents grew up in the pan handle of West Texas during the dust bowl. This led them to love the forests of the Pacific Northwest where we eventually landed as a family. This passion for the green lushness of the Douglas fir and cedar trees of the surrounding woods was instilled in me. Trees have an individuality that fascinates; their size, form and texture are a spectacular example of basic elements of design. This stump was a practical reference to trees and one that provided seating around a fire that would not burn! It was constructed of repeated small plasma-cut pieces of pipe tacked and welded onto a larger pipe as a surface decoration. The stainless seating surface insured a clean surface on which to sit and humorously acts as a rain drum in a heavy downpour! 
 """
 
 [[projects]]
@@ -180,9 +176,10 @@ slug = "laminaria"
 folder = "Laminaria"
 title = "Laminaria"
 materials = "Stainless steel"
+dimensions = "94″ × 23″ circular base"
 year = "2014"
 exhibited = "The Allison Inn & Spa Sculpture Invitational, Newberg, Oregon, 2013 · San Juan Island Sculpture Park, Roche Harbor, 2014"
-collection = "Installed in private home"
+collection = "In a private collection."
 description = """
 Spending time on the waters of Puget Sound, it is often that one encounters floating beds of kelp. The life sustained within and on these sea-gardens denies the simple beauty of the swaying bands seeking light from the depth, supported by the round bulbs. I was mesmerized by their swaying dance.
 """
@@ -191,12 +188,13 @@ Spending time on the waters of Puget Sound, it is often that one encounters floa
 slug = "tree-trunk-tangle-bench"
 folder = "Tree Trunk Tangle Bench"
 title = "Tree Trunk Tangle Bench"
-materials = "Corten and stainless steel"
+materials = "Corten and stainless-steel"
+dimensions = "90″ × 55″ × 34.5″"
 year = "2010"
 exhibited = "Lake Oswego Festival of the Arts, 2011 · 9th Around Oregon Annual, Corvallis, 2011 · The Allison Inn & Spa Sculpture Invitational, 2013"
-collection = "Installed in private home"
+collection = "In a private collection."
 description = """
-A finalist for a community bench, Tree Trunk Tangle bench was inspired by the tangle of logs that are found after the swollen rivers subside after the spring rains and early snow melt. The composition combines weathering and stainless-steels making maintenance minimal and the complimentary color tones aesthetically rich.
+A finalist for a community bench, Tree Trunk Tangle bench was inspired by the tangle of logs that are found after the swollen rivers subside after the spring rains and early snow melt. The composition combines weathering and stainless-steels making maintenance minimal and the complementary color tones aesthetically rich.
 """
 
 [[projects]]
@@ -204,7 +202,8 @@ slug = "susies-gate"
 folder = "Susie's gate"
 title = "Susie's Gate"
 materials = "Mild steel with black powder coating"
-collection = "Installed in private home"
+dimensions = "105.25″ × 40″ × 5″"
+collection = "In a private collection."
 year = "2020"
 description = """
 This is a commissioned piece for a client to secure her front entry area where she displays art and artifacts from around the world. The challenge was to design forms that created sufficiently small openings to limit entry and simultaneously create shapes that were interesting and organic enough to reflect the feeling of the rural environment. There was a need to maintain an abstraction of form to avoid conflict with the collection of items on display within.
@@ -215,6 +214,7 @@ slug = "turban-man"
 folder = "Turban Man"
 title = "Turban Man"
 materials = "Mild steel"
+dimensions = "18″ × 18.5″ × 32.5″"
 year = "2009"
 description = """
 Human beings tend to fear those different from ourselves and men wearing turbans were certainly villainized in the aftermath of various world events here in the West. This bearded man with a turban was a rather crude effort to show the universality of his humanity and allow us to look unabashedly at him and ourselves.
@@ -225,10 +225,11 @@ slug = "16th-street"
 folder = "16th Street"
 title = "16th Street Railing"
 materials = "Mild steel with clear and black powder coating"
-collection = "Installed in private home"
+dimensions = "43″ × 108″ × 4″"
+collection = "In a private collection."
 year = "2007"
 description = """
-Inspired by the bay over which this house looks, the railing provides security to descend the stairs safely with a wave like form that rolls down from the upper corner with open circles and ends with open squares. There is surface decoration of bird feathers that reference the majesty of the Pacific Northwest aerial wildlife.
+Inspired by the bay over which this house looks, the railing provides security to descend the stairs safely with a wave-like form that rolls down from the upper corner with open circles and ends with open squares. There is surface decoration of bird feathers that reference the majesty of the Pacific Northwest aerial wildlife.
 """
 
 [[projects]]
@@ -250,9 +251,10 @@ slug = "firepit-evolution"
 folder = "Firepit Evolution"
 title = "Firepit — Evolution"
 materials = "Mild steel"
+dimensions = "36″ × 36″ × 27″"
 year = "2008"
 description = """
-Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support around fire. The design elements of this firepit highlights the path of life in the oceans moving onto land. Made of 8 story panels assembled in 4 hinged pairs, the overall firepit can be easily stored off season with only the large fire dish and grate taking any significant space.
+Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support around fire. The design elements of this firepit highlight the path of life in the oceans moving onto land. Made of 8 story panels assembled in 4 hinged pairs, the overall firepit can be easily stored off season with only the large fire dish and grate taking any significant space.
 """
 
 [[projects]]
@@ -260,6 +262,7 @@ slug = "firepit-interconnected"
 folder = "Firepit Interconnected"
 title = "Firepit — Interconnected"
 materials = "Mild steel"
+dimensions = "36″ × 36″ × 36″"
 year = "2008"
 description = """
 Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support around fire. This large round firepit consists of 5 faces of various ethnicity to represent the diversity and beauty of the peoples of the world. These faces are woven together with bands of metal that intermittently start and stop to indicate the fragility of our connectedness as war rages and burns around the world.
@@ -270,6 +273,7 @@ slug = "firepit-irony"
 folder = "Firepit Irony"
 title = "Firepit — Irony"
 materials = "Mild steel"
+dimensions = "36″ × 36″ × 27″"
 year = "2008"
 description = """
 Fire has always fascinated me and elicits a primal desire to find warmth both physically and psychologically. Humans are drawn together in community and in support, around fire. I have loved trees in a special way for as long as I can remember. Simultaneously I am drawn to fire. Made of 8 story panels assembled in 4 hinged pairs, the overall firepit can be easily stored off season with only the large fire dish and grate taking any significant space. It strikes me that as flame consumes wood it makes the imagery of these 4 paired panels, ironic.
@@ -279,7 +283,8 @@ Fire has always fascinated me and elicits a primal desire to find warmth both ph
 slug = "lukes-lamp"
 folder = "Luke's lamp"
 title = "Luke's Lamp"
-materials = "Tractor disks, mild steel, crystal doornobs"
+materials = "Tractor disks, mild steel, crystal doorknobs"
+dimensions = "43″ × 108″ × 4″"
 year = "2023"
 description = """
 This lamp was made to commemorate the life of a young man, the son of a friend, who died of cancer in his late twenties. He worked professionally in metal and I assembled two tractor disks with two crystal door knobs with the idea that though this lamp, his light would shine on. 2022.
@@ -290,7 +295,8 @@ slug = "candle-sticks"
 folder = "Candle Sticks"
 title = "Candlesticks"
 materials = "Stainless steel"
+dimensions = "10″ × 3″ × 3″ each"
 year = "2021"
 description = """
-Simple rectangles of leftover stainless tubing were assembled to hold tapers. Again, the warmth of the flame is set off by the cool stainless steel color palette.
+Simple rectangles of leftover stainless tubing were assembled to hold tapers. Again, the warmth of the flame is set off by the cool stainless-steel color palette.
 """

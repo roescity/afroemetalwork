@@ -40,11 +40,11 @@
 1800
 ],
 "images/laminaria/primary-thumb.jpg": [
-377,
+597,
 900
 ],
 "images/laminaria/primary-large.jpg": [
-755,
+1193,
 1800
 ],
 "images/summer-reclining/primary-thumb.jpg": [
@@ -340,6 +340,14 @@
 1350
 ],
 "images/16th-street/1-thumb.jpg": [
+900,
+675
+],
+"images/16th-street/2-large.jpg": [
+1800,
+1350
+],
+"images/16th-street/2-thumb.jpg": [
 900,
 675
 ],
